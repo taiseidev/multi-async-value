@@ -1,5 +1,5 @@
 name: multi_async_value
-description: "A new Flutter package project."
+description: A package for efficiently combining multiple AsyncValue instances from the Riverpod package into a single AsyncValue with tuple results.
 version: 0.0.1
 homepage: https://dart.dev/
 
