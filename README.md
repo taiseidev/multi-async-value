@@ -2,7 +2,7 @@
 
 ## Overview
 
-The multi_async_value package provides a set of extension functions on the AsyncValue class from the Riverpod package. These functions allow for the combination of multiple AsyncValue instances into a single AsyncValue that contains a tuple of the results. This is particularly useful in scenarios where you need to handle multiple asynchronous operations and render their results simultaneously in your Flutter application.
+The multi_async_value package provides a set of extension functions on the AsyncValue class from the Riverpod package. These functions allow for the combination of multiple AsyncValue instances into a single AsyncValue that contains a record of the results. This is particularly useful in scenarios where you need to handle multiple asynchronous operations and render their results simultaneously in your Flutter application.
 
 ## Features
 - Grouping of AsyncValues: Combine two or more AsyncValue instances into a single AsyncValue.
@@ -16,8 +16,7 @@ To use the multi_async_value package in your Flutter project, add the following 
 
 ```yaml
 dependencies:
-  riverpod: ^2.4.9
-  multi_async_value: ^1.0.0
+  multi_async_value: ^0.0.1
 ```
 
 ## Usage
@@ -42,11 +41,8 @@ final asyncValue2 = AsyncValue.data('Hello');
 
 final result = MultiAsyncValue.group2(asyncValue1, asyncValue2);
 
-// result is now an AsyncValue containing a tuple (1, 'Hello')
+// result is now an AsyncValue containing a record (1, 'Hello')
 ```
 
 ## Contributing
 Contributions to the multi_async_value package are welcome. Please feel free to open an issue or create a pull request.
-
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
