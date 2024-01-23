@@ -1,39 +1,52 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# MultiAsyncValue Package
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+## Overview
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+The multi_async_value package provides a set of extension functions on the AsyncValue class from the Riverpod package. These functions allow for the combination of multiple AsyncValue instances into a single AsyncValue that contains a tuple of the results. This is particularly useful in scenarios where you need to handle multiple asynchronous operations and render their results simultaneously in your Flutter application.
 
 ## Features
+- Grouping of AsyncValues: Combine two or more AsyncValue instances into a single AsyncValue.
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- Support for Different Combinations: Functions available for combining 2, 3, 4, or 5 AsyncValue instances.
 
-## Getting started
+- Error and Loading Handling: Properly handles scenarios where any of the AsyncValue instances are in a loading state or have encountered an error.
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+## Installation
+To use the multi_async_value package in your Flutter project, add the following dependency to your pubspec.yaml file:
 
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
+```yaml
+dependencies:
+  riverpod: ^2.4.9
+  multi_async_value: ^1.0.0
 ```
 
-## Additional information
+## Usage
+Import the package where you want to use it:
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```dart
+import 'package:multi_async_value/multi_async_value.dart';
+```
+
+Use the extension functions (group2, group3, group4, group5) to combine multiple AsyncValue instances:
+
+```dart
+final combinedValue = MultiAsyncValue.group2(asyncValue1, asyncValue2);
+```
+
+Example
+Combining two AsyncValue instances:
+
+```dart
+final asyncValue1 = AsyncValue.data(1);
+final asyncValue2 = AsyncValue.data('Hello');
+
+final result = MultiAsyncValue.group2(asyncValue1, asyncValue2);
+
+// result is now an AsyncValue containing a tuple (1, 'Hello')
+```
+
+## Contributing
+Contributions to the multi_async_value package are welcome. Please feel free to open an issue or create a pull request.
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
